@@ -1,0 +1,51 @@
+---
+# tasks file for preinstall
+#Install required packages
+- name: Install required packages
+  yum: pkg={{ item }} state=present
+  with_items:
+   - wget 
+   - git
+   - net-tools
+   - bind-utils
+   - iptables-services
+   - bridge-utils
+   - bash-completion
+   - vim
+   - lrzsz
+   - unzip
+- name: Update base packages
+  yum: pkg=* state=latest
+  #Install docker
+- name: Install docker package
+  yum: pkg=docker state=present
+- name: Enable docker service
+  service: name=docker enabled=yes
+  #Stop docker & config docker storage
+# - name: Stop docker service
+#   service: name=docker state=stopped
+# - name: Remove /var/lib/docker
+#   file: path=/var/lib/docker state=absent
+#     #Modify /etc/sysconfig/docker-storage-setup
+# - name: Write docker storage file
+#   template:
+#     src: docker-storage-setup.j2
+#     dest: "/etc/sysconfig/docker-storage-setup"
+#     backup: true
+#   notify:
+#   - run docker-storage-setup 
+#     # Run docker-storage-setup;
+# - name: run docker-storage-setup
+#   command: docker-storage-setup    
+#     # start docker
+- name: Start docker service
+  service: name=docker state=started
+
+  #TODO Configure DNS for each node
+
+  #TODO Install and configure external docker-registry
+  #TODO Modify Image Tags
+  #TODO Push Images to Docker-registry
+  #TODO Modify docker config, add registry to external registry
+  #TODO Restart docker
+  #TODO Restart master and node service

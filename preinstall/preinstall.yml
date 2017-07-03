@@ -1,0 +1,12 @@
+---
+
+# Pre-install 
+# TODO: validate the different identity provider kinds as well
+- name: Pre-install 
+  hosts: all
+  roles:
+     - preinstall
+- name: Pre-install 
+  hosts: master
+  roles:
+     - master
