@@ -1,0 +1,5 @@
+---
+- name: Pre-install 
+  hosts: all
+  roles:
+     - docker-storage

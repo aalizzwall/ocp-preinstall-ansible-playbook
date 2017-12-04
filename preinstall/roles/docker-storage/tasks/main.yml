@@ -1,3 +1,22 @@
 ---
-- name: Install atomic-openshift-utils package
-  yum: pkg=atomic-openshift-utils state=present
+- name: Install docker package
+  yum: pkg=docker state=present
+- name: Enable docker service
+  service: name=docker enabled=yes
+- name: Stop docker service
+  service: name=docker state=stopped
+- name: Remove /var/lib/docker
+  file: path=/var/lib/docker state=absent
+- lvg:
+    vg: "{{docker_volume_group}}"
+    pvs: "{{docker_vg_device}}"
+- name: Write docker storage file
+  template:
+    src: templates/docker-storage-setup.j2
+    dest: "/etc/sysconfig/docker-storage-setup"
+    backup: true
+- name: run docker-storage-setup
+  command: docker-storage-setup
+- name: Start docker service
+  service: name=docker state=started
+

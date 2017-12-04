@@ -5,16 +5,22 @@ nodes
 [OSEv3:vars]
 ansible_ssh_user=root
 
-#ocp-ansible-playbook
+# yum repo server
 #rhel_yum_repo_server=http://rhlab1.demo.com:8008/repo/
 rhel_yum_repo_server=http://lb-service.demo.com/repo/
+
+# add to /etc/hosts
 rhel_yum_repo_hosts='192.168.0.80 lb-service.demo.com'
 
+# docker-storage-setup
+docker_vg_device=/dev/vda3
+docker_volume_group=docker-vg
+
+# dnsmasq resolv for openshift internal
 dnsmasq_internal='address=/.paas.demo.com/192.168.0.82'
 
 [masters]
 etcd-master1.demo.com ansible_host=192.168.0.81
-
 
 [nodes]
 etcd-master1.demo.com ansible_host=192.168.0.81 
