@@ -15,9 +15,6 @@ How to use?
   ```
   # ansible-playbook -i hosts preinstall.yml
   ```
-  
-  _Note_ Not included
-  * docker-storage-setup `volume group`
 
 -----------
 * After Install
