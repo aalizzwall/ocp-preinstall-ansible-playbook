@@ -20,6 +20,7 @@ How to use?
   * hostnamectl `hostnamectl set-hostname ocp-master1.example.com`
   * docker-storage-setup `volume group`
 
+-----------
 * After Install
 
   * dnsmasq `.xpaas.example.com`

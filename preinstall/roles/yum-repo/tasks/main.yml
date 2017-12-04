@@ -5,4 +5,4 @@
     dest: /etc/yum.repos.d/ocp-private.repo
 - lineinfile:
     path: /etc/hosts
-    line: '192.168.0.80 lb-service.demo.com'
+    line: "{{ rhel_yum_repo_hosts }}"
