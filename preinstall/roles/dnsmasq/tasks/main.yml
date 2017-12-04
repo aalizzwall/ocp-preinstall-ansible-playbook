@@ -1,0 +1,4 @@
+---
+- lineinfile:
+    path: /etc/dnsmasq.d/origin-dns.conf
+    line: 'address=/.paas.cathdevelop.intra.uwccb/88.8.196.140'
