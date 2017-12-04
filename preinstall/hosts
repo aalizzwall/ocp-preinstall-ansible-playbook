@@ -1,0 +1,57 @@
+[OSEv3:children]
+masters
+nodes
+etcd
+#lb
+
+[OSEv3:vars]
+ansible_ssh_user=root
+deployment_type=openshift-enterprise
+openshift_master_identity_providers=[{'name':'htpasswd_auth', 'login':'true', 'challenge':'true', 'kind':'HTPasswdPasswordIdentityProvider', 'filename':'/etc/origin/master/htpasswd'}]
+openshift_master_cluster_method=native
+openshift_master_cluster_hostname=openshift.demo.com
+openshift_master_cluster_public_hostname=openshift.demo.com
+openshift_master_default_subdomain=apps.demo.com
+#openshift_docker_options="--selinux-enabled --insecure-registry 1.2.0.0/16 --log-driver json-file --log-opt max-size=10M --log-opt max-file=3 --add-registry registry.cathdevelop.intra.uwccb:5000"
+#openshift_docker_additional_registries=registry.cathdevelop.intra.uwccb:5000
+#oreg_url="registry.cathdevelop.intra.uwccb:5000/openshift3/ose-${component}:${version}"
+#openshift_examples_modify_imagestreams=true
+#openshift_docker_insecure_registries=registry.cathdevelop.intra.uwccb:5000
+#openshift_hosted_metrics_public_url=https://hawkular-metrics.paas.cathdevelop.intra.uwccb/hawkular/metrics
+
+#disable checks unsupported
+#openshift_disable_check=memory_availability, docker_storage
+
+# default selectors for router and registry services
+openshift_router_selector='region=infra'
+openshift_registry_selector='region=infra'
+
+#openshift_hosted_logging_deploy=true 
+#openshift_hosted_logging_deployer_prefix=registry.cathdevelop.intra.uwccb:5000/openshift3/
+#openshift_hosted_logging_deployer_version=v3.6
+
+#openshift_hosted_metrics_deploy=true 
+#openshift_hosted_metrics_deployer_prefix=registry.cathdevelop.intra.uwccb:5000/openshift3/
+#openshift_hosted_metrics_deployer_version=v3.6
+    
+#openshift_cockpit_deployer_prefix=registry.cathdevelop.intra.uwccb:5000/openshift3/
+#openshift_cockpit_deployer_version=v3.6
+
+#ocp-ansible-playbook
+#rhel_yum_repo_server=http://rhlab1.demo.com:8008/repo/
+rhel_yum_repo_server=http://lb-service.demo.com/repo/
+rhel_yum_repo_hosts='192.168.0.80 lb-service.demo.com'
+
+[masters]
+etcd-master1.demo.com ansible_host=192.168.0.81
+
+[etcd]
+etcd-master1.demo.com ansible_host=192.168.0.81
+
+#[lb]
+#openshift.demo.com ansible_host=192.168.0.81
+
+[nodes]
+etcd-master1.demo.com ansible_host=192.168.0.81
+infra-node1.demo.com ansible_host=192.168.0.82 openshift_node_labels="{'region':'infra'}"
+app-node1.demo.com ansible_host=192.168.0.83 openshift_node_labels="{'zone':'default'}"

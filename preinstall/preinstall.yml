@@ -7,6 +7,6 @@
   roles:
      - preinstall
 - name: Pre-install 
-  hosts: master
+  hosts: all
   roles:
      - master

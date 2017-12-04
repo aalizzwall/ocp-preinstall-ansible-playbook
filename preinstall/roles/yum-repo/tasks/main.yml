@@ -1,0 +1,8 @@
+---
+- name: generation the hello_world.txt file
+  template:
+    src: templates/ocp-private.js
+    dest: /etc/yum.repos.d/ocp-private.repo
+- lineinfile:
+    path: /etc/hosts
+    line: '192.168.0.80 lb-service.demo.com'
