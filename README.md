@@ -16,9 +16,9 @@ How to use?
   ansible-playbook -i hosts preinstall.yml
   ```
   
-  _Note_ Not included 
-    * hostnamectl `hostnamectl set-hostname ocp-master1.example.com`
-    * docker-storage-setup `volume group`
+  _Note_ Not included
+  * hostnamectl `hostnamectl set-hostname ocp-master1.example.com`
+  * docker-storage-setup `volume group`
 
 * After Install
 
