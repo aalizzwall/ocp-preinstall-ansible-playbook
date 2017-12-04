@@ -17,7 +17,6 @@ How to use?
   ```
   
   _Note_ Not included
-  * hostnamectl `hostnamectl set-hostname ocp-master1.example.com`
   * docker-storage-setup `volume group`
 
 -----------
