@@ -39,6 +39,6 @@
   * dnsmasq `.xpaas.example.com`
   
   ```bash
-  # ansible-playbook -i hosts dnsmasq.yml
+  # ansible-playbook -i ../preinstall/hosts dnsmasq.yml
   ```
 
