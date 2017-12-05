@@ -42,3 +42,6 @@
   # ansible-playbook -i ../preinstall/hosts dnsmasq.yml
   ```
 
+### Maybe issue
+
+  * Cant resolv s2i registry fqdn , like `cluster.svc`
