@@ -7,7 +7,7 @@
   roles:
      - hostname
      - package
-     - docker-storage
+     - servicestatus
 - name: Pre-install 
   hosts: all
   roles:

@@ -17,10 +17,10 @@
 - name: Update base packages
   yum: pkg=* state=latest
   #Install docker
-- name: Install docker package
-  yum: pkg=docker state=present
-- name: Enable docker service
-  service: name=docker enabled=yes
+  #- name: Install docker package
+  #  yum: pkg=docker state=present
+  #- name: Enable docker service
+  #  service: name=docker enabled=yes
   #Stop docker & config docker storage
 # - name: Stop docker service
 #   service: name=docker state=stopped
@@ -38,8 +38,8 @@
 # - name: run docker-storage-setup
 #   command: docker-storage-setup    
 #     # start docker
-- name: Start docker service
-  service: name=docker state=started
+#- name: Start docker service
+#  service: name=docker state=started
 
   #TODO Configure DNS for each node
 
