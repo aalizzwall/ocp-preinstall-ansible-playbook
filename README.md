@@ -5,7 +5,9 @@
  - hostname
  - docker-storage device
 
-#### Config Private yum-repo Server
+#### In `preinstall` folder
+
+##### Config Private yum-repo Server
 
 
   * Config YUM Repo Server (`/etc/yum.repos.d/ocp-private.repo`)
@@ -15,9 +17,8 @@
   ```
   _Note_ Office `rhel_yum_repo_server` = http://rhlab1.demo.com:8008/repo/
 
-### Pre Install 
+##### Pre Install 
 
-#### In `preinstall` folder
 
   * Install docker and setup docker-storage
 
@@ -31,7 +32,7 @@
   # ansible-playbook -i hosts preinstall.yml
   ```
 
-#### After Install
+##### After Install
 
 
   * dnsmasq `.xpaas.example.com`
