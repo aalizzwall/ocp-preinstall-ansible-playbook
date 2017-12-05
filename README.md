@@ -19,7 +19,7 @@
 
 #### After Install
 
-  * dnsmasq `.xpaas.example.com`
+  * dnsmasq .xpaas.example.com
   ```bash
   # ansible-playbook -i hosts dnsmasq.yml
   ```
