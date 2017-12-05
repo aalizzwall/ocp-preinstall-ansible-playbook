@@ -1,5 +1,0 @@
----
-- name: Pre-install 
-  hosts: all
-  roles:
-     - hostname
