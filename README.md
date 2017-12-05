@@ -1,11 +1,10 @@
-OpenShift Install ansible playbook 
-================
-How to use?
+# OpenShift Install ansible playbook 
+## How to use?
 -----------
 
-# Pre Install 
+### Pre Install 
 
-## In `preinstall` folder
+#### In `preinstall` folder
 
   * Config YUM Repo Server (`/etc/yum.repos.d/ocp-private.repo`)
   ```bash
@@ -18,11 +17,9 @@ How to use?
   # ansible-playbook -i hosts preinstall.yml
   ```
 
+#### After Install
 
------------------------
-# After Install
-
-  * dnsmasq `.xpaas.example.com` 
+  * dnsmasq `.xpaas.example.com` resolv
   ```bash
   # ansible-playbook -i hosts dnsmasq.yml
   ```
