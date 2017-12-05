@@ -1,0 +1,5 @@
+---
+- name: After-install 
+  hosts: all
+  roles:
+     - dnsmasq

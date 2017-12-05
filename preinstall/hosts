@@ -19,6 +19,8 @@ docker_volume_group=docker-vg
 # dnsmasq resolv for openshift internal
 dnsmasq_internal='address=/.paas.demo.com/192.168.0.82'
 
+openshift_public_hosts='192.168.0.81 openshift.demo.com'
+
 [masters]
 etcd-master1.demo.com ansible_host=192.168.0.81
 
