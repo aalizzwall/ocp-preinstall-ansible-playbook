@@ -20,16 +20,16 @@
 ##### Pre Install 
 
 
-  * Install docker and setup docker-storage
-
-  ```bash
-  # ansible-playbook -i hosts docker-storage.yml
-  ```
-
   * Install Package & Config Setting before OpenShift
   
   ```bash
   # ansible-playbook -i hosts preinstall.yml
+  ```
+
+  * Install docker and setup docker-storage
+
+  ```bash
+  # ansible-playbook -i hosts docker-storage.yml
   ```
 
 #### In `afterinstall` folder
@@ -39,7 +39,7 @@
   * dnsmasq `.xpaas.example.com`
   
   ```bash
-  # ansible-playbook -i ../preinstall/hosts dnsmasq.yml
+  # ansible-playbook -i ../afterinstall/hosts dnsmasq.yml
   ```
 
 ### Maybe issue

@@ -12,5 +12,6 @@
    - vim
    - lrzsz
    - unzip
+   - docker
 - name: Update base packages
   yum: pkg=* state=latest

@@ -1,13 +1,9 @@
 ---
-
-# Pre-install 
-# TODO: validate the different identity provider kinds as well
 - name: Pre-install 
   hosts: all
   roles:
      - hostname
      - package
-     - servicestatus
 - name: Pre-install 
   hosts: all
   roles:
