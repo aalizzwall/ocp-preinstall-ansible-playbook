@@ -7,7 +7,8 @@
   service: name=docker state=stopped
 - name: Remove /var/lib/docker
   file: path=/var/lib/docker state=absent
-- lvg:
+- name: Create volume group
+  lvg:
     vg: "{{docker_volume_group}}"
     pvs: "{{docker_vg_device}}"
 - name: Write docker storage file

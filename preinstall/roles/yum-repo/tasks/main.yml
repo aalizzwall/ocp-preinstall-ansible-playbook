@@ -1,8 +1,9 @@
 ---
-- name: generation the hello_world.txt file
+- name: generation the ocp-private.repo file
   template:
     src: templates/ocp-private.js
     dest: /etc/yum.repos.d/ocp-private.repo
-- lineinfile:
+- name: add to /etc/hosts
+  lineinfile:
     path: /etc/hosts
     line: "{{ rhel_yum_repo_hosts }}"
