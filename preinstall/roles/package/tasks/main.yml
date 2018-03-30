@@ -9,9 +9,10 @@
    - iptables-services
    - bridge-utils
    - bash-completion
+   - kexec-tools 
+   - sos 
+   - psacct
    - vim
-   - lrzsz
-   - unzip
    - docker
 - name: Update base packages
   yum: pkg=* state=latest
