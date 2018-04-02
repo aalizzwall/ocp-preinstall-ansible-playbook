@@ -1,6 +1,9 @@
 ---
 - name: Pre-install 
-  hosts: all
+  hosts: docker-storage
   roles:
      - docker-storage
+- name: Pre-install 
+  hosts: all
+  roles:
      - servicestatus

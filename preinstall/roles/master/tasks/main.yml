@@ -1,3 +1,5 @@
 ---
 - name: Install atomic-openshift-utils package
   yum: pkg=atomic-openshift-utils state=present
+- name: Install httpd-tools package
+  yum: pkg=httpd-tools state=present

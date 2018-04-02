@@ -5,6 +5,6 @@
      - hostname
      - package
 - name: Pre-install 
-  hosts: all
+  hosts: masters
   roles:
      - master

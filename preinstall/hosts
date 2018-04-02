@@ -1,30 +1,36 @@
 [OSEv3:children]
 masters
 nodes
+docker-storage
+
 
 [OSEv3:vars]
 ansible_ssh_user=root
 
 # yum repo server
-#rhel_yum_repo_server=http://rhlab1.demo.com:8008/repo/
-rhel_yum_repo_server=http://lb-service.demo.com/repo/
+rhel_yum_repo_server=http://yum.demo.com:8008/repo/
 
 # add to /etc/hosts
-rhel_yum_repo_hosts='192.168.0.80 lb-service.demo.com'
+rhel_yum_repo_hosts='192.168.0.41 yum.demo.com'
 
 # docker-storage-setup
 docker_vg_device=/dev/vda3
 docker_volume_group=docker-vg
 
 # dnsmasq resolv for openshift internal
-dnsmasq_internal='address=/.paas.demo.com/192.168.0.82'
+dnsmasq_internal='address=/.apps.demo.com/192.168.100.102'
 
-openshift_public_hosts='192.168.0.81 openshift.demo.com'
+openshift_public_hosts='192.168.100.101 openshift.demo.com'
 
 [masters]
-etcd-master1.demo.com ansible_host=192.168.0.81
+etcd-master1.demo.com ansible_host=192.168.100.101
 
 [nodes]
-etcd-master1.demo.com ansible_host=192.168.0.81 
-infra-node1.demo.com ansible_host=192.168.0.82 
-app-node1.demo.com ansible_host=192.168.0.83 
+etcd-master1.demo.com ansible_host=192.168.100.101
+infra-node1.demo.com ansible_host=192.168.100.102 
+app-node1.demo.com ansible_host=192.168.100.103 
+
+[docker-storage]
+etcd-master1.demo.com ansible_host=192.168.100.101
+infra-node1.demo.com ansible_host=192.168.100.102 
+app-node1.demo.com ansible_host=192.168.100.103 
