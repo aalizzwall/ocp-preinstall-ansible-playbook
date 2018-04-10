@@ -32,6 +32,19 @@
   # ansible-playbook -i hosts docker-storage.yml
   ```
 
+##### (Option)
+  * Setup nfs-server
+
+  ```bash
+  # ansible-playbook -i hosts nfs-server.yml
+  ```
+
+  * Set selinux permissive
+
+  ```bash
+  # ansible-playbook -i hosts selinux.yml
+  ```
+
 #### In `afterinstall` folder
 ##### After Install
 
