@@ -2,6 +2,7 @@
 masters
 nodes
 docker-storage
+nfs-server
 
 
 [OSEv3:vars]
@@ -22,8 +23,13 @@ dnsmasq_internal='address=/.apps.demo.com/192.168.100.102'
 
 openshift_public_hosts='192.168.100.101 openshift.demo.com'
 
+nfs_exports=['/opt/pv-1 *(rw,all_squash,no_wdelay)','/opt/pv-2 *(rw,all_squash,no_wdelay)','/opt/pv-3 *(rw,all_squash,no_wdelay)','/opt/pv-4 *(rw,all_squash,no_wdelay)','/opt/pv-5 *(rw,all_squash,no_wdelay)']
+
+[nfs-server]
+lb-service.demo.com ansible_host=192.168.0.80
+
 [masters]
-etcd-master1.demo.com ansible_host=192.168.100.101
+etcd-master1.demo.com ansible_host=192.168.0.80
 
 [nodes]
 etcd-master1.demo.com ansible_host=192.168.100.101

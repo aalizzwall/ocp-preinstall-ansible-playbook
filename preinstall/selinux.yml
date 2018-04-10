@@ -1,0 +1,5 @@
+---
+- name: Set selinux permissive
+  hosts: all
+  roles:
+     - selinux

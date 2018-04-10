@@ -12,6 +12,8 @@
    - kexec-tools 
    - sos 
    - psacct
+   - python-ipaddress
+   - yum-utils
    - vim
    - docker
 - name: Update base packages
